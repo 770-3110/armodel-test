@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ARmodel-test</title>
+
+    <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@ar-js-org/ar.js/aframe/build/ar-nft.js"></script>
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+    <a-scene embedded arjs="debugUIEnabled:false;">
+        <a-assets>
+            <a-asset-item id="my-model" src="img/more.glb"></a-asset-item>
+        </a-assets>
+
+        <a-marker type="pattern" url="img/pattern_popo.patt">
+            <a-entity gltf-model="#my-model" position="0 0 0" scale="0.1 0.1 0.1"></a-entity>
+
+        </a-marker>
+
+        <a-entity camera></a-entity>
+    </a-scene>
+</body>
+
+</html>
