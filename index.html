@@ -21,21 +21,18 @@
       </a-assets>
 
       <!-- マーカーの.pattファイルを読み込む -->
-      <!--<a-marker type="pattern" url="img/pattern-popo.patt">-->
+      <a-marker type="pattern" url="img/pattern-popo.patt">
         <!-- 3Dモデルを呼び出す -->
           <a-entity
 	  gltf-model="#model"
           scale="2 2 2"
           animation="property: rotation; to: 0 360 0; loop: true; dur: 5000"
         ></a-entity>
-	  <!--</a-marker>-->
-
-              <!--
+	    </a-marker>
 	    <a-marker type="pattern" url="img/pattern_simple_qrcode.patt">
             <a-image width="1" height="1" position="0 0 0" rotation="-90 0 0" src="img/icon.png">
             </a-image>
-	      </a-marker>
-	      -->
+	    </a-marker>
 
       <!-- カメラを追加 -->
       <a-entity camera></a-entity>
