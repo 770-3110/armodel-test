@@ -1,45 +1,51 @@
+
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- A-Frame を読み込む -->
-    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-    <!-- AR.js を読み込む -->
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <title>ARmodel-test</title>
-  </head>
-  <body style="margin: 0; overflow: hidden">
-	  
-    <!-- A-FrameにAR.jsを紐づけ、VRボタン非表示、深度バッファ追加 -->
-    <a-scene embedded arjs vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;">
-	    
-      <!-- 3DCGモデルを読み込む -->
-      <a-assets>
-        <a-asset-item id="model" src="img/mokumoku.glb"></a-asset-item>
-      </a-assets>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <a-entity light="type: ambient; intensity: 1.2"></a-entity>
-  <a-entity light="type: directional; intensity: 1.5" position="0 50 0"></a-entity>
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 
-      <!-- マーカーの.pattファイルを読み込む -->
-      <a-marker type="pattern" url="img/pattern-Lenna_gray.patt">
-        <!-- 3Dモデルを呼び出す -->
-          <a-entity
-	  gltf-model="#model"
-          scale="0.1 0.1 0.1"
-	  >
-	  <!--animation="property: rotation; to: 0 360 0; loop: true; dur: 5000"-->
-	  </a-entity>
-	    </a-marker>
-	    <a-marker type="pattern" url="img/pattern-Lenna_gray.patt">
-            <a-image width="1" height="1" position="0 0 0" rotation="0 0 0" src="img/pattern-Lenna_gray.png">
-            </a-image>
-	    </a-marker>
+  <title>ARmodel-test</title>
+</head>
 
-      <!-- カメラを追加 -->
-      <a-entity camera></a-entity>
-    </a-scene>
-  </body>
+<body style="margin: 0; overflow: hidden;">
+
+  <a-scene
+    embedded
+    arjs
+    vr-mode-ui="enabled: false;"
+    renderer="logarithmicDepthBuffer: true;">
+
+    <!-- 照明 -->
+    <a-entity light="type: ambient; intensity: 1.2"></a-entity>
+    <a-entity
+      light="type: directional; intensity: 1.5"
+      position="0 50 0">
+    </a-entity>
+
+    <!-- ARマーカー -->
+    <a-marker
+      type="pattern"
+      url="img/pattern-Lenna_gray.patt">
+
+      <!-- マーカーの上に立方体を表示 -->
+      <a-box
+        position="0 0.5 0"
+        width="0.5"
+        height="0.5"
+        depth="0.5"
+        color="red">
+      </a-box>
+
+    </a-marker>
+
+    <!-- カメラ -->
+    <a-entity camera></a-entity>
+
+  </a-scene>
+
+</body>
 </html>
